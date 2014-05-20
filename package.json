@@ -1,0 +1,15 @@
+{
+  "name": "GateCodes",
+  "version": "0.1.0",
+  "author": "Abdullah Badahdah",
+  "description": "A rewrite of the current gate code application.",
+  "main": "./server.js",
+  "dependencies": {
+    "jade": "*",
+    "express": "~3.1.0"
+  },
+  "noAnalyze": true,
+  "engines": {
+    "node": ">=0.6.14"
+  }
+}
