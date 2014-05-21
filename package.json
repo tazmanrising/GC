@@ -5,8 +5,9 @@
   "description": "A rewrite of the current gate code application.",
   "main": "./server.js",
   "dependencies": {
+    "express": "~3.1.0",
     "jade": "*",
-    "express": "~3.1.0"
+    "mssql": "^0.5.3"
   },
   "noAnalyze": true,
   "engines": {
