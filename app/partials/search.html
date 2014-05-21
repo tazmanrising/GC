@@ -1,0 +1,42 @@
+<div ng-controller="SearchController">
+    
+    <div class="row">
+
+    <!-- search box for users to enter fields to match -->
+    <div id="search-box" class="col-lg-4">
+
+        <table class="table">
+            <tr ng-repeat="field in basic_search_fields">
+                <td><label class="capital">{{ field }}</label></td>
+                <td><input class="form-control" type="text" placeholder="{{field}}" ng-model="match[field]" /></td>
+            </tr>
+            <tr>
+                <td><label>RAS</label></td>
+                <td>
+                    <select class="form-control" ng-model="match.ras">
+                        <option></option>
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+        
+
+        <!-- allow users to clear a search -->
+        <button class="btn btn-primary" ng-click="clear()">Clear</button>
+
+    </div>
+
+    <!-- after search results are found, they are displayed here -->
+    <div id="results" class="col-lg-8">
+        <div ng-if="isEmpty()">
+            <p>Please Enter search info to the left.</p>
+        </div>
+        <div ng-if="!isEmpty()">
+        </div>
+    </div>
+
+    </div>
+
+</div>
