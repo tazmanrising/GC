@@ -11,9 +11,9 @@
     <title>Gate Codes</title>
 
     <!-- style includes -->
-    <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" 
         href="lib/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     
     <!-- library includes -->
     <script src="lib/underscore/underscore.js"></script>
@@ -29,7 +29,35 @@
 </head>
 <body>
 
+    <nav class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Gate Codes</a>
+        </div>
 
+
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Link</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+              </ul>
+            </li>
+          </ul>
+
+      </div><!-- /.container-fluid -->
+    </nav>
 
     <div class="container" ng-view></div>
 

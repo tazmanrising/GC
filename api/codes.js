@@ -12,7 +12,7 @@ exports.setup = function (app) {
 
         var connection = new sql.Connection(config, function (err) {
             var request = new sql.Request(connection); // or: var request = connection.request();
-            request.query('select [ID],[Dist],[Address],[ApartmentName] from tblGateCodes', function (err, recordset) {
+            request.query('SELECT [ID] as id , [Dist] as district, [Address] as address, [ApartmentName] as location, [RAS] as ras, [Forty] as code FROM tblGateCodes', function (err, recordset) {
                 // ... error checks
                 if (err) {
                     res.json(500, err);

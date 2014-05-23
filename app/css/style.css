@@ -1,12 +1,19 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
-
-a {
-  color: #00B7FF;
+    margin-top:  60px;
 }
 
 .capital {
     text-transform: capitalize;
+}
+
+#search-box td {
+    border:  none;
+}
+
+#search-box {
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    padding:  10px;
+    background:  #f9f9f9;
+    position:  relative;
 }
