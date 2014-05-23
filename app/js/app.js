@@ -32,27 +32,31 @@ function ($http, $scope, $routeParams) {
         'location',
         'address',
         'district',
-        'code',
-        'ras'
+        'code'
     ];
 
+    // watch gets triggered anytime the match object changes; 
+    // the user changes their search paramaeters.
     $scope.$watch('match', function () {
-        // makes it easier to deal with when empt string option is set.
+        // makes it easier to deal with when empty string option is set.
         for (var key in $scope.match) {
             if ($scope.match[key] == "") delete $scope.match[key];
         }
-        var fields = $scope.basic_search_fields;
+        // try to filter out the result based on match object
         var results = _.filter($scope.data, function (item) {
-            var res = false;
+            var res = false; // assume current option doesn't match
             for (var key in $scope.match) {
-                if (String(item[key]).toLowerCase()
-                        .indexOf($scope.match[key].toLowerCase()) != -1) {
-                    res = true;
-                }
+                // to lower case to ignore case
+                _.each($scope.match[key].toLowerCase().split(' '), function (keyword) {
+                    if (String(item[key]).toLowerCase().indexOf(keyword) != -1) {
+                        res = true;
+                    }
+                });
             }
-            return res;
+            return res; // return result
         });
-        $scope.results = (results.length > 0)? results : $scope.data;
+        // if no match is found, display all results
+        $scope.results = (results.length > 0) ? results : $scope.data;
     }, true);
 
     // quickly clear the search form
