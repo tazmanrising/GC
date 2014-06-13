@@ -1,96 +1,42 @@
-<div ng-controller="SearchController">
+<div ng-controller="SearchCtrl">
     
-    <div class="row">
-        <div class="col-md-2">
-            <a href="#" class="thumbnail">
-                <img src="http://srpdoc03/GateCodes/Images/p1.jpg">
-            </a>
-        </div>
-        <div class="col-md-2">
-            <a href="#" class="thumbnail">
-                <img src="http://srpdoc03/GateCodes/Images/p2.jpg">
-            </a>
-        </div>
-        <div class="col-md-2">
-            <a href="#" class="thumbnail">
-                <img src="http://srpdoc03/GateCodes/Images/p3.jpg">
-            </a>
-        </div>
+  <div class="row">
+    <div class="col-md-2">
+      <a href="#" class="thumbnail">
+        <img src="http://srpdoc03/GateCodes/Images/p1.jpg">
+      </a>
     </div>
-
-    <div class="row">
-
-    <!-- search box for users to enter fields to match -->
-    <div id="search-box" class="col-lg-4">
-
-        <table class="table">
-            <tr ng-repeat="field in basic_search_fields">
-                <td><label class="capital">{{ field }}</label></td>
-                <td><input class="form-control" type="text" placeholder="{{field}}" ng-model="match[field]" /></td>
-            </tr>
-            <tr>
-                <td><label>RAS</label></td>
-                <td>
-                    <select class="form-control" ng-model="match.ras">
-                        <option></option>
-                        <option value=true>Yes</option>
-                        <option value="false">No</option>
-                    </select>
-                </td>
-            </tr>
-            <!-- Control options -->
-            <tr>
-                <td>
-                    <!-- allow users to clear a search -->
-                    <button class="btn btn-primary" ng-click="clear()">Clear</button>
-                </td>
-                <td>
-                    <select class="form-control" ng-model="count">
-                        <option>10</option>
-                        <option>25</option>
-                        <option>50</option>
-                        <option>100</option>
-                    </select>
-                </td>
-            </tr>
-        </table>
-
+    <div class="col-md-2">
+      <a href="#" class="thumbnail">
+        <img src="http://srpdoc03/GateCodes/Images/p2.jpg">
+      </a>
     </div>
+    <div class="col-md-2">
+      <a href="#" class="thumbnail">
+        <img src="http://srpdoc03/GateCodes/Images/p3.jpg">
+      </a>
+    </div>
+  </div>
+
+  <div class="row">
 
     <!-- after search results are found, they are displayed here -->
-    <div id="results" class="col-lg-8">
-        <table class="table table-striped table-hover">
-            <tr>
-                <th class="capital" ng-repeat="field in basic_search_fields">{{ field }}</th>
-            </tr>
-            <tr ng-repeat="result in results.slice(page*count, page*count + count)">
-                <td ng-repeat="field in basic_search_fields">{{ result[field] }}</td>
-            </tr>
-        </table>
-
-
-        <div class="row">
-            <div class="col-md-6">
-                <ul ng-if="results.length > count" class="pagination">
-
-                    <li ng-click="prev()" ng-if="page > 0"><a>&laquo;</a></li>
-                    <li ng-if="!(page > 0)" class="disabled "><a>&laquo;</a></li>
-
-
-                    <li ng-repeat="i in pages" class="active"><a>1</a></li>
-
-                    <li ng-click="next()" ng-if="page < results.length/count - 1"><a>&raquo;</a></li>
-                    <li ng-if="!(page < results.length/count - 1)" class="disabled "><a>&raquo;</a></li>
-
-                </ul>
-            </div>
-            <div class="col-md-6">
-                <p>{{ results.length }} of {{ data.length }}</p>
-            </div>
-        </div>
-        
+    <div id="results" variable="results" keys="keys" class="col-lg-12" ng-paginate>
+      <div>items: {{ items }}</div>
+      <div>itemsPerPage: {{ itemsPerPage }}</div>
+      <div>currentPage: {{ currentPage }}</div>
+      <div>maxPages: {{ maxPages }}</div>
+      <table>
+        <tr ng-repeat="d in data">
+          <td ng-repeat="key in keys">{{ key.field }}</td>
+        </tr>
+      </table>
+      <button ng-click="first()">First</button>
+      <button ng-click="prev()">Prev</button>
+      <button ng-click="next()">Next</button>
+      <button ng-click="last()">Last</button>
     </div>
 
-    </div>
+  </div>
 
 </div>

@@ -1,6 +1,5 @@
 var express = require('express')
 
-  , user = require('./api/user')
   , http = require('http')
   , path = require('path')
   , passport = require('passport');
