@@ -1,0 +1,74 @@
+<style>
+.search-item
+{
+  max-width: 640px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+.search-item:after
+{
+  content: "";
+  clear: both;
+  display: table;
+}
+.search-item *
+{
+  float: left;
+  display: inline-block;
+  height: 40px;
+  margin-left: -5px;
+}
+.search-item .input
+{
+  width: 70%;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.search-item .select
+{
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  width: 20%;
+}
+.search-item .btn-yellow
+{
+  margin-left: 30px;
+  padding: 0 15px;
+}
+.search-add
+{
+  float: right;
+  padding-left: 20px;
+  padding-right: 15px;
+}
+.search-builder
+{
+  margin-bottom: 20px;
+}
+</style>
+
+<div class="search-builder">
+
+  <!-- add new search value -->
+  <button data-tooltip="Add a new search parameter."
+          class="btn-blue search-add"
+          ng-click="add()">&plus;</button>
+
+  
+  <!-- single search item -->
+  <div class="search-item" ng-repeat="s in search track by $index">
+
+    <input class="input" ng-model="search[$index].value"/>
+
+    <select class="select"
+            ng-init="search[$index].key = params[0]" 
+            ng-model="search[$index].key"
+            ng-options="param for param in params"></select>
+
+    <!-- remove current search item -->
+    <button data-tooltip="Remove search parameter." 
+            class="btn-yellow search-modify"
+            ng-click="remove($index)">&minus;</button>
+  </div>
+
+</div>

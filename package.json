@@ -7,9 +7,7 @@
   "dependencies": {
     "express": "~3.1.0",
     "jade": "*",
-    "mssql": "^0.5.3",
-    "passport": "^0.2.0",
-    "passport-windowsauth": "https://github.com/djblue/passport-windowsauth/tarball/master"
+    "mssql": "^0.5.3"
   },
   "noAnalyze": true,
   "engines": {
