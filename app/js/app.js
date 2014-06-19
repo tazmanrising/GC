@@ -32,6 +32,19 @@ function ($http, $q) {
 
 }]);
 
+// This controller will manage the navbar
+// - display current user
+// - highlight current route
+app.controller('NavCtrl', ['$location', 'Data', '$scope',
+
+function ($location, Data, $scope) {
+
+  Data.user.then(function (user) {
+    $scope.user = user;
+  });
+
+}]);
+
 // This controller helps users search through all of the current gate codes.
 app.controller('SearchCtrl', ['$scope', '$routeParams', 'Data',
 
@@ -54,6 +67,7 @@ function ($scope, $routeParams, Data) {
   $scope.results = $scope.data;
 
 
+  // update local references when data become available
   Data.codes.then(function (codes) {
     $scope.data = codes;
     $scope.results = codes;

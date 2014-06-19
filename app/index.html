@@ -45,7 +45,7 @@
 </head>
 <body class="body">
 
-    <nav class="navbar">
+    <nav class="navbar" ng-controller="NavCtrl">
       <div class="container">
         <ul class="nav">
           <li><a href="#/">Gate Codes</a></li>
@@ -54,7 +54,7 @@
           <li><a href="#/help">help</a></li>
         </ul>
         <ul class="nav-right">
-          <li><a>ASBADAHD</a></li>
+          <li><a>{{ user.ntid }}</a></li>
         </ul>
       </div>
     </nav>
