@@ -62,30 +62,30 @@
     <div ng-if="maxPages > 0">
       <table class="table">
         <tr>
-          <th>Index</th>
-          <th>Value</th>
-          <th>Random</th>
-          <th>JSON</th>
-          <th>Random</th>
-          <th>Random</th>
-          <th>Random</th>
-          <th>Random</th>
+          <th>Id</th>
+          <th>Location</th>
+          <th>Address</th>       
+          <th>District</th>
+          <th>40 Acre</th>
+          <th>In Code</th>
+          <th>E/W Coords</th>
+          <th>N/S Coords</th>
         </tr>
         <tr ng-repeat="p in page">
-          <td>{{ p.index }}</td>
-          <td>{{ p.value }}</td>
-          <td>The random number is: {{ p.random }}</td>
-          <td>{{ p }}</td>
-          <td>{{ p.random2 }}</td>
-          <td>{{ p.random3 }}</td>
-          <td>{{ p.random4 }}</td>
-          <td>{{ p.random5 }}</td>
+          <td>{{ p.id }}</td>
+          <td>{{ p.location }}</td>
+          <td>{{ p.address }}</td>
+          <td>{{ p.district }}</td>
+          <td>{{ p.forty }}</td>
+          <td>{{ p.incode }}</td>
+          <td>{{ p.ewcoord }}</td>
+          <td>{{ p.nscoord }}</td>
         </tr>
       </table>
     </div>
 
-    <div style="text-align: center;" ng-if="maxPages == 0">
-      <h1>No Search Results</h1>
+    <div style="text-align: center; width:  100%;" ng-if="maxPages == 0">
+      <div>No Search Results</div>
     </div>
 
     <div class="grid" style="margin-top: 20px">

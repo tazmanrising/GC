@@ -15,13 +15,11 @@ app.configure(function(){
   app.use(express.bodyParser());
   app.use(passport.initialize());
   app.use(express.methodOverride());
-  app.use(app.router);
-  app.use(express.static(path.join(__dirname, 'app')));
+  app.use('/gate-codes', app.router);  
+  app.use('/gate-codes', express.static(path.join(__dirname, './app'))); 
 });
 
-app.configure('development', function(){
-  app.use(express.errorHandler());
-});
+//app.get('/', function (req, res) { res.sendfile('./app/index.html'); });
 
 require('./api/codes').setup(app);
 require('./api/auth').setup(app);

@@ -11,16 +11,16 @@ var app = angular.module('app', ['ngRoute'])
 app.service('Data', ['$http', '$q',
 function ($http, $q) {
 
-  /*
+  
   var user = $q.defer(); 
 
-  $http.get('/api/user').success(function (data) {
+  $http.get('api/user').success(function (data) {
     user.resolve(data);
   });
 
   var codes = $q.defer();
 
-  $http.get('/api/codes').success(function (data) {
+  $http.get('api/codes').success(function (data) {
     codes.resolve(data);
   });
 
@@ -28,7 +28,7 @@ function ($http, $q) {
     user: user.promise,
     codes: codes.promise
   };
-  */
+  
 
 }]);
 
@@ -37,7 +37,7 @@ app.controller('SearchCtrl', ['$scope', '$routeParams', 'Data',
 
 function ($scope, $routeParams, Data) {
 
-  $scope.data = [];
+  $scope.data = [];/*
   for (var i = 0; i < 10000; i++) {
     $scope.data.push({
       index: i,
@@ -48,16 +48,16 @@ function ($scope, $routeParams, Data) {
       random4: Math.ceil(Math.random() * 100),
       random5: Math.ceil(Math.random() * 100),
     });
-  }
+  }*/
 
   $scope.match = []; // setup the default match object
   $scope.results = $scope.data;
 
-/*
+
   Data.codes.then(function (codes) {
     $scope.data = codes;
     $scope.results = codes;
-  });*/
+  });
 
   $scope.keys = [
     { field: 'id', css: { 'width': '40px' } },
