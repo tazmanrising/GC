@@ -82,24 +82,27 @@
           <td>{{ p.nscoord }}</td>
         </tr>
       </table>
-    </div>
 
-    <div style="text-align: center; width:  100%;" ng-if="maxPages == 0">
-      <div>No Search Results</div>
-    </div>
-
-    <div class="grid" style="margin-top: 20px">
-      <div class="col-2-3">
-        <div class="pagination">
-          <button ng-click="first()">First</button>
-          <button ng-click="prev()">Prev</button>
-          <button ng-click="goto(1)">1</button>
-          <button ng-click="next()">Next</button>
-          <button ng-click="last()">Last</button>
+      <div class="grid" style="margin-top: 20px">
+        <div class="col-2-3">
+          <div class="pagination">
+            <button ng-click="first()">First</button>
+            <button ng-click="prev()">Prev</button>
+            <button ng-click="goto(1)">1</button>
+            <button ng-click="next()">Next</button>
+            <button ng-click="last()">Last</button>
+          </div>
+        </div>
+        <div class="col-1-3 text-right">
+          <span>Page <span style="color: #006ea9"><b>{{ currentPage }}</b></span> of <b>{{ maxPages }}</b></span>
         </div>
       </div>
-      <div class="col-1-3 text-right">
-        <span>Page <span style="color: #006ea9"><b>{{ currentPage }}</b></span> of <b>{{ maxPages }}</b></span>
+    </div>
+
+    <!-- error message if no search results are found. -->
+    <div class="grid" ng-if="maxPages == 0">
+      <div  class="col-1-1 text-center text-yellow">
+        <h2>Sorry. No Search Results.</h2>
       </div>
     </div>
 
