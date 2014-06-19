@@ -29,7 +29,7 @@
   <div search="match" params="searchFields" search-builder></div>
 
   <!-- paginate search results -->
-  <div ng-paginate="page in results">
+  <div update="resultsUpdated" ng-paginate="page in results">
 
     <!--
     <div>items: {{ items }}</div>

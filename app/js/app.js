@@ -50,37 +50,16 @@ app.controller('SearchCtrl', ['$scope', '$routeParams', 'Data',
 
 function ($scope, $routeParams, Data) {
 
-  $scope.data = [];/*
-  for (var i = 0; i < 10000; i++) {
-    $scope.data.push({
-      index: i,
-      value: i + 1,
-      random: Math.ceil(Math.random() * 100),
-      random2: Math.ceil(Math.random() * 100),
-      random3: Math.ceil(Math.random() * 100),
-      random4: Math.ceil(Math.random() * 100),
-      random5: Math.ceil(Math.random() * 100),
-    });
-  }*/
-
+  $scope.data = [];
   $scope.match = []; // setup the default match object
   $scope.results = $scope.data;
-
 
   // update local references when data become available
   Data.codes.then(function (codes) {
     $scope.data = codes;
     $scope.results = codes;
+    $scope.resultsUpdated();
   });
-
-  $scope.keys = [
-    { field: 'id', css: { 'width': '40px' } },
-    { field: 'location' },
-    { field: 'address' },
-    { field: 'district' },
-    { field: 'forty' },
-    { field: 'code' }
-  ];
 
   $scope.searchFields = [
     'index',
@@ -107,7 +86,8 @@ function ($scope, $routeParams, Data) {
       }
       return res; // return result
     });
-    //$scope.results = results;
+    $scope.results = results;
+    $scope.resultsUpdated(); // let pagination directive know about changes
   }, true);
 
 }]);
@@ -166,11 +146,16 @@ app.directive('ngPaginate', function () {
       // ngPaginate.
       // format: page in pages
       var attrs = $attrs.ngPaginate.match(/(.*) in (.*)/);
+      var update = $attrs.update;
+
+      if (!!update) {
+        $scope.$parent[update] = function () { setup(); };
+      }
 
       // setup scope variables
       var pageName = $scope.pageName = attrs[1];
       var arrayName = $scope.arrayName = attrs[2];
-      var itemsPerPage = $scope.itemsPerPage = 10;
+      var itemsPerPage = $scope.itemsPerPage = 25;
 
       var slice = function () {
         if (!!$scope.$parent[$scope.arrayName]) {
