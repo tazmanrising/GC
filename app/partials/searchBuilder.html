@@ -50,9 +50,9 @@
 <div class="search-builder">
 
   <!-- add new search value -->
-  <button data-tooltip="Add a new search parameter."
+  <a data-tooltip="Add a new search parameter."
           class="btn-blue search-add"
-          ng-click="add()">&plus;</button>
+          ng-click="add()">+</a>
 
   
   <!-- single search item -->
@@ -66,9 +66,9 @@
             ng-options="param for param in params"></select>
 
     <!-- remove current search item -->
-    <button data-tooltip="Remove search parameter." 
+    <a data-tooltip="Remove search parameter." 
             class="btn-yellow search-modify"
-            ng-click="remove($index)">&minus;</button>
+            ng-click="remove($index)">-</a>
   </div>
 
 </div>

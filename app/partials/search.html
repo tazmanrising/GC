@@ -28,10 +28,6 @@
   <h1>Search</h1>
   <div search="match" params="searchFields" search-builder></div>
 
-  <div>
-    Matched {{ results.length }} out of {{ data.length }}
-  </div>
-
   <!-- paginate search results -->
   <div ng-paginate="page in results">
 
@@ -54,7 +50,8 @@
         </select>
         <label> items per page</label>
       </div>
-      <div class="col-1-2">
+      <div class="col-1-2 text-center">
+        Matched {{ results.length }} out of {{ data.length }}
       </div>
       <div class="col-1-4 text-right">
         <span>Page <span style="color: #006ea9"><b>{{ currentPage }}</b></span> of <b>{{ maxPages }}</b></span>
@@ -69,12 +66,20 @@
           <th>Value</th>
           <th>Random</th>
           <th>JSON</th>
+          <th>Random</th>
+          <th>Random</th>
+          <th>Random</th>
+          <th>Random</th>
         </tr>
         <tr ng-repeat="p in page">
           <td>{{ p.index }}</td>
           <td>{{ p.value }}</td>
           <td>The random number is: {{ p.random }}</td>
           <td>{{ p }}</td>
+          <td>{{ p.random2 }}</td>
+          <td>{{ p.random3 }}</td>
+          <td>{{ p.random4 }}</td>
+          <td>{{ p.random5 }}</td>
         </tr>
       </table>
     </div>

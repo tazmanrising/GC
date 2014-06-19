@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="app">
+<html id="ng-app" ng-app="app">
 <head>
 
     <meta charset="utf-8" />
@@ -11,31 +11,22 @@
     <!-- set favicon -->
     <link rel="icon" 
           type="image/png" 
-          href="http://0.0.0.0:8000/images/favicon.png">
+          href="http://192.168.1.128:8000/images/favicon.png">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
     <title>Gate Codes</title>
 
     <!-- style includes -->
-    <!--
-    <link rel="stylesheet" type="text/css" 
-        href="lib/bootstrap/dist/css/bootstrap.min.css">
-        -->
-    <link rel="stylesheet" type="text/css" href="http://0.0.0.0:8000/style.css">
+    <link rel="stylesheet" type="text/css" href="http://192.168.1.128:8000/style.css">
     
     <!-- library includes -->
     <script src="lib/underscore/underscore.js"></script>
     <script src="lib/jquery/dist/jquery.min.js"></script>
     <script src="lib/angular/angular.min.js"></script>
     <script src="lib/angular-route/angular-route.min.js"></script>
-    <!--
-    <script src="lib/angular-strap/dist/angular-strap.min.js"></script>
-    <script src="lib/angular-strap/dist/angular-strap.tpl.min.js"></script>
-    -->
 
     <!-- application includes -->
     <script src="js/app.js"></script>
@@ -47,7 +38,7 @@
       }
       .container
       {
-        max-width: 1024px;
+        max-width: 1920px;
       }
     </style>
 
@@ -77,7 +68,7 @@
             Currently v0.0.1
           </div>
           <div class="col-1-5">
-            <img class="block" src="http://0.0.0.0:8000/images/srp-white.svg"/>
+            <img class="block" src="http://192.168.1.128:8000/images/srp-white.svg"/>
           </div>
         </div>
       </div>

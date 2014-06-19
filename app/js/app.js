@@ -38,11 +38,15 @@ app.controller('SearchCtrl', ['$scope', '$routeParams', 'Data',
 function ($scope, $routeParams, Data) {
 
   $scope.data = [];
-  for (var i = 0; i < 5000; i++) {
+  for (var i = 0; i < 10000; i++) {
     $scope.data.push({
       index: i,
       value: i + 1,
-      random: Math.ceil(Math.random() * 100)
+      random: Math.ceil(Math.random() * 100),
+      random2: Math.ceil(Math.random() * 100),
+      random3: Math.ceil(Math.random() * 100),
+      random4: Math.ceil(Math.random() * 100),
+      random5: Math.ceil(Math.random() * 100),
     });
   }
 
@@ -82,17 +86,14 @@ function ($scope, $routeParams, Data) {
       var res = false; // assume current option doesn't match
       for (var i = 0; i < $scope.match.length; i++) {
         var obj = $scope.match[i];
-        if (obj)
-        if (String(element[obj.key]).indexOf(obj.value) > -1 || !obj.value) {
+        if (_.indexOf(String(element[obj.key]), obj.value) > -1 || !obj.value) {
           res = true;
         }
+          res = true;
       }
       return res; // return result
     });
-    //console.log(results.length);
-    // if no match is found, display all results
-    //$scope.results = (results.length > 0) ? results : $scope.data;
-    $scope.results = results;
+    //$scope.results = results;
   }, true);
 
 }]);
@@ -181,7 +182,7 @@ app.directive('ngPaginate', function () {
       };
 
       // update view when array changes
-      $scope.$parent.$watch(arrayName, function () { setup(); } , true);
+      //$scope.$parent.$watch(arrayName, function () { setup(); } , true);
 
       // update view when pagination variables change
       $scope.$watch('currentPage', function () { slice(); });

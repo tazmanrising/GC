@@ -19,7 +19,7 @@
   ],
   "dependencies": {
     "underscore": "~1.6.0",
-    "jquery": "~2.1.1",
+    "jquery": "1.x",
     "angular": "~1.2.16",
     "angular-route": "~1.2.16",
     "angular-strap": "~2.0.2"
