@@ -62,12 +62,13 @@ function ($scope, $routeParams, Data) {
   });
 
   $scope.searchFields = [
-    'index',
+    'id',
     'location',
     'address',
     'district',
     'forty',
-    'code'
+    'incode',
+    'ras'
   ];
 
   // watch gets triggered anytime the match object changes; 

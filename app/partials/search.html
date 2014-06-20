@@ -70,6 +70,7 @@
           <th>In Code</th>
           <th>E/W Coords</th>
           <th>N/S Coords</th>
+          <th>RAS</th>
         </tr>
         <tr ng-repeat="p in page">
           <td>{{ p.id }}</td>
@@ -80,6 +81,10 @@
           <td>{{ p.incode }}</td>
           <td>{{ p.ewcoord }}</td>
           <td>{{ p.nscoord }}</td>
+          <td>
+            <span class="label-green" ng-if="p.ras">Yes</span>
+            <span ng-if="!p.ras">No</span>
+          </td>
         </tr>
       </table>
 
