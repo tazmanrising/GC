@@ -1,0 +1,2 @@
+C:\dev\gate-codes\obj\Debug\gate-codes.njsprojResolveAssemblyReference.cache
+C:\dev\gate-codes\bin\Microsoft.NodejsTools.WebRole.dll

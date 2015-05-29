@@ -76,18 +76,22 @@ function ($scope, $routeParams, Data) {
   $scope.$watch('match', function () {
 
     // try to filter out the result based on match object
-    var results = _.filter($scope.data, function (element) {
-      var res = false; // assume current option doesn't match
+    var rank = _.chain($scope.data)
+    .map(function (element) {
+      var res = 0; // assume current option doesn't match
       for (var i = 0; i < $scope.match.length; i++) {
         var obj = $scope.match[i];
-        if (_.indexOf(String(element[obj.key]), obj.value) > -1 || !obj.value) {
-          res = true;
+        var value = String(element[obj.key]);
+        if (value == String(obj.value)) {
+          res++;
         }
-          res = true;
       }
       return res; // return result
-    });
-    $scope.results = results;
+    })
+    .filter(function (element) { return element > 0; })
+    .value();
+    console.log(rank);
+    //$scope.results = results;
     $scope.resultsUpdated(); // let pagination directive know about changes
   }, true);
 

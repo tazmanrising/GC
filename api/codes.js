@@ -12,8 +12,17 @@ exports.setup = function (app) {
   app.get('/api/codes', function (req, res) {
 
     var connection = new sql.Connection(config, function (err) {
-      var request = new sql.Request(connection); // or: var request = connection.request();
-      request.query('SELECT ID as id , Dist as district, Address as address, ApartmentName as location, RAS as ras, Incode as incode, Forty as forty, CoordinatesEW as ewcoord, CoordinatesNS as nscoord, Comments as comment  FROM tblGateCodes', function (err, recordset) {
+    var request = new sql.Request(connection); // or: var request = connection.request();
+            
+    var baseQuery = 'SELECT ID as id , Dist as district, Address as address, ApartmentName as location, RAS as ras, Incode as incode, Forty as forty, CoordinatesEW as ewcoord, CoordinatesNS as nscoord, Comments as comment  FROM tblGateCodes';
+            var whereClause = ' WHERE ApartmentName like \'%cott%\'';
+            
+      baseQuery = baseQuery + whereClause;
+
+      request.query(baseQuery, function (err, recordset) {
+                
+        //WHERE ApartmentName like '%cott%'      
+                  
         // ... error checks
         if (err) {
           res.json(500, err);
